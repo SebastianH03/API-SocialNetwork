@@ -1,4 +1,4 @@
-const connection = require("./dataBase/connection");
+const {connection} = require("./dataBase/connection");
 const express = require("express");
 const cors = require("cors");
 
@@ -19,5 +19,15 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
 // routes configuration
+app.get("/test-rout", (req, res) => {
+    return res.status(200).json({
+        "id": 1,
+        "nombre": "Sebastian",
+        "web": "panda.com"
+    });
+})
 
 // Listen to http request
+app.listen(puerto, () => {
+    console.log("Server listening on port: ", puerto)
+});
